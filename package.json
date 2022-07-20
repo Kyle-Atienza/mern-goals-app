@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm start --prefix frontend",
     "start": "node backend/server.js",
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-potbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +23,7 @@
     "mongoose": "^6.4.4"
   },
   "devDependencies": {
+    "concurrently": "^7.2.2",
     "nodemon": "^2.0.19"
   }
 }
